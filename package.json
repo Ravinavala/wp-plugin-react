@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/Ravinavala/wp-plugin-react/issues"
   },
-  "homepage": "https://github.com/Ravinavala/wp-plugin-react#readme"
+  "homepage": "https://github.com/Ravinavala/wp-plugin-react#readme",
+  "devDependencies": {
+    "@wordpress/scripts": "^25.4.0"
+  }
 }

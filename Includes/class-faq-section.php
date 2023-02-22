@@ -23,8 +23,9 @@ private function load_dependencies() {
 }
 
 public function faq_plugin_admin_script() {
-    wp_enqueue_style( 'faq-sec-style', plugin_dir_url( __FILE__ ) . 'build/index.css' );
-    wp_enqueue_script( 'faq-sec-script', plugin_dir_url( __FILE__ ) . 'build/index.js', array( 'wp-element' ), '1.0.0', true );
+
+     wp_enqueue_style( 'faq-sec-style', FAQ_SECTION_PLUGIN_URL . 'build/index.css' );
+    wp_enqueue_script( 'faq-sec-script', FAQ_SECTION_PLUGIN_URL . 'build/index.js', array( 'wp-element' ), '1.0.0', true );
 }
 }
 

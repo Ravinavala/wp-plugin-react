@@ -37,6 +37,6 @@ class Faq_Admin {
     }
 
     public function faq_content() {
-        require FAQ_SECTION_PLUGIN_PATH . 'app.php';
+        require FAQ_SECTION_PLUGIN_PATH . 'admin/app.php';
     }
 }

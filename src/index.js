@@ -7,4 +7,4 @@ import { render } from '@wordpress/element';
 import './style/main.scss';
 
 // Render the App component into the DOM
-render(<App />, document.getElementById('faq-section'));
+render(<App />, document.getElementById('faq_main_sec'));

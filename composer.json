@@ -1,0 +1,16 @@
+{
+    "name": "ravina/faq-plugin",
+    "description": "adds a searchable and collapsible FAQ section",
+    "autoload": {
+        "psr-4": {
+            "Ravina\\FaqPlugin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Ravina Vala",
+            "email": "vala8460@gmail.com"
+        }
+    ],
+    "require": {}
+}

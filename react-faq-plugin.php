@@ -11,4 +11,24 @@
  */
 
 
+$CUSTOMFORM = '1.0.0';
 
+if (!defined('FAQ_SECTION_VERSION')) {
+    define('FAQ_SECTION_VERSION', 'faq-section');
+}
+
+if (!defined('FAQ_SECTION_PLUGIN_URL')) {
+    define('FAQ_SECTION_PLUGIN_URL', plugin_dir_url(__FILE__));
+}
+
+if (!defined('FAQ_SECTION_PLUGIN_PATH')) {
+    define('FAQ_SECTION_PLUGIN_PATH', plugin_dir_path(__FILE__));
+}
+
+if (!defined('FAQ_DIR_PATH')) {
+    define('FAQ_DIR_PATH', plugin_dir_path(__DIR__));
+}
+
+require FAQ_SECTION_PLUGIN_PATH . 'includes/class-faq-section.php';
+
+$admin = new Faq_Admin();

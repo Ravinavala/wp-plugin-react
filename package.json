@@ -1,0 +1,19 @@
+{
+  "name": "faq-plugin",
+  "version": "1.0.0",
+  "description": "A plugin that adds a searchable and collapsible FAQ section to your website using React JS.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ravinavala/wp-plugin-react.git"
+  },
+  "author": "ravina vala",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ravinavala/wp-plugin-react/issues"
+  },
+  "homepage": "https://github.com/Ravinavala/wp-plugin-react#readme"
+}

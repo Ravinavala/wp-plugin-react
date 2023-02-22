@@ -14,15 +14,76 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _components_FaqList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/FaqList */ "./src/components/FaqList.js");
+/* harmony import */ var _components_FaqForm__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/FaqForm */ "./src/components/FaqForm.js");
+
 
 
 
 const App = () => {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", {
     className: "app-title"
-  }, "Faq Place App"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_FaqList__WEBPACK_IMPORTED_MODULE_2__["default"], null));
+  }, "Faq Place App"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("hr", null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_FaqList__WEBPACK_IMPORTED_MODULE_2__["default"], null), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_components_FaqForm__WEBPACK_IMPORTED_MODULE_3__["default"], null));
 };
 /* harmony default export */ __webpack_exports__["default"] = (App);
+
+/***/ }),
+
+/***/ "./src/components/FaqForm.js":
+/*!***********************************!*\
+  !*** ./src/components/FaqForm.js ***!
+  \***********************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/element */ "@wordpress/element");
+/* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _FaqForm_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FaqForm.css */ "./src/components/FaqForm.css");
+
+
+
+function FaqForm(props) {
+  const [question, setQuestion] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
+  const [answer, setAnswer] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)("");
+  const questionHandelr = e => {
+    setQuestion(e.target.value);
+  };
+  const answerHandler = e => {
+    setAnswer(e.target.value);
+  };
+  const handleSubmit = event => {
+    event.preventDefault();
+    console.log(question, answer);
+  };
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
+    onSubmit: handleSubmit,
+    className: "faq-form"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "form-group"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    htmlFor: "question"
+  }, "Question"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("input", {
+    type: "text",
+    id: "question",
+    value: question,
+    onChange: questionHandelr,
+    className: "form-control"
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "form-group"
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("label", {
+    htmlFor: "answer"
+  }, "Answer"), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("textarea", {
+    id: "answer",
+    value: answer,
+    onChange: answerHandler,
+    className: "form-control"
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("button", {
+    type: "submit",
+    className: "btn btn-primary"
+  }, "Add FAQ"));
+}
+/* harmony default export */ __webpack_exports__["default"] = (FaqForm);
 
 /***/ }),
 
@@ -43,6 +104,18 @@ const FaqList = () => {
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Test Item "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Test Item "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Test Item "));
 };
 /* harmony default export */ __webpack_exports__["default"] = (FaqList);
+
+/***/ }),
+
+/***/ "./src/components/FaqForm.css":
+/*!************************************!*\
+  !*** ./src/components/FaqForm.css ***!
+  \************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
 
 /***/ }),
 

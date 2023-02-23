@@ -149,8 +149,20 @@ __webpack_require__.r(__webpack_exports__);
 
 
 const FaqSection = () => {
-  const onSubmitHandler = data => {
-    console.log(data);
+  const onSubmitHandler = faqData => {
+    // Send the FAQ data to the custom REST endpoint
+    fetch('/litch_venture/wp-json/faqplugin/v1/faq', {
+      method: 'POST',
+      body: JSON.stringify(faqData),
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }).then(response => response.json()).then(data => {
+      // Save the FAQ data in the WordPress option table
+      const faqs = JSON.parse(localStorage.getItem('faqs')) || [];
+      const newFaqs = [...faqs, data];
+      localStorage.setItem('faqs', JSON.stringify(newFaqs));
+    });
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_FaqForm__WEBPACK_IMPORTED_MODULE_2__["default"], {
     onSubmit: onSubmitHandler

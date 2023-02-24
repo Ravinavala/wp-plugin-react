@@ -123,10 +123,30 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_element__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_element__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react */ "react");
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _FaqList_module_css__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./FaqList.module.css */ "./src/components/FaqList.module.css");
+
 
 
 const FaqList = () => {
-  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Test Item "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Test Item "), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "Test Item "));
+  const [faqList, setFaqList] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+  (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
+    fetch('/litch_venture/wp-json/faqplugin/v1/getfaq').then(response => {
+      return response.json();
+    }).then(data => {
+      console.log(data);
+      setFaqList(data);
+    });
+  }, []);
+  return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: _FaqList_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].faq_main
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Frequently Asked Questions"), faqList.map(faqItem => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    key: faqItem.id,
+    className: _FaqList_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].faq_item
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: _FaqList_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].faq_question
+  }, faqItem.question), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: _FaqList_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].faq_answer
+  }, faqItem.answer))));
 };
 /* harmony default export */ __webpack_exports__["default"] = (FaqList);
 
@@ -179,6 +199,18 @@ const FaqSection = () => {
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
+
+/***/ }),
+
+/***/ "./src/components/FaqList.module.css":
+/*!*******************************************!*\
+  !*** ./src/components/FaqList.module.css ***!
+  \*******************************************/
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+/* harmony default export */ __webpack_exports__["default"] = ({"faq_main":"yN_YbiX6i_MQHFocha0k","faq_item":"E8frvItemodwtkBxEF7_","faq_question":"wL7RE5qHxlZebAzkYWIS","faq_answer":"NXsZ5kGkNWkVibKreiuR"});
 
 /***/ }),
 

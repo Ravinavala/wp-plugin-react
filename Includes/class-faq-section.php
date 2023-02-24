@@ -22,16 +22,7 @@ public function __construct() {
 private function load_dependencies() {
     require_once FAQ_SECTION_PLUGIN_PATH . 'admin/class-faq-admin.php';
 }
-
-public function save_faq_data( $request ) {
-  $data = $request->get_params();
-
-  // Save the FAQ data to the options table
-  update_option( 'faq_data', $data );
-
-  return 'FAQ data saved successfully.';
-}
-
+/** Register custom endpoint for faqplugin */
 public function register_faq_route() {
   register_rest_route( 'faqplugin/v1', '/faq', array(
     'methods' => 'POST',
@@ -39,7 +30,45 @@ public function register_faq_route() {
             $this,
             'save_faq_data'
     ),
+    // 'permission_callback' => function () {
+    //     return current_user_can( 'edit_others_posts' );
+    // }
   ) );
+}
+
+public function save_faq_data( WP_REST_Request $request ) {
+   $data = $request->get_params();
+
+    // Validate data
+    if ( empty( $data['question'] ) || empty( $data['answer'] ) ) {
+        return new WP_Error( 'missing_fields', 'Missing required fields', array( 'status' => 400 ) );
+    }
+
+    // Save data to database
+    $saved = $this->save_faq_to_database( $data );
+
+    if ( $saved ) {
+        return array( 'success' => true );
+    } else {
+        return new WP_Error( 'save_failed', 'Failed to save data', array( 'status' => 500 ) );
+    }
+}
+
+public function save_faq_to_database( $data ) {
+    global $wpdb;
+
+    $table_name = $wpdb->prefix . 'faq_plugin_data';
+
+    $wpdb->insert( 
+        $table_name, 
+        array( 
+            'question' => sanitize_text_field($data['question']), 
+            'answer' => sanitize_textarea_field($data['answer']), 
+        ), 
+        array('%s', '%s') 
+    );
+
+    return $wpdb->insert_id;
 }
 
 public function faq_plugin_admin_script() {

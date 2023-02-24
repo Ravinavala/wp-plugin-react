@@ -10,13 +10,12 @@ const FaqSection = () => {
           headers: {
             'Content-Type': 'application/json'
           }
-        })
-        .then(response => response.json())
+        }) .then(response => response.json())
         .then(data => {
-            // Save the FAQ data in the WordPress option table
-            const faqs = JSON.parse(localStorage.getItem('faqs')) || [];
-            const newFaqs = [...faqs, data];
-            localStorage.setItem('faqs', JSON.stringify(newFaqs));
+            console.log('Success:', data);
+        })
+        .catch((error) => {
+            console.error('Error:', error);
         });
     }
     return <div>

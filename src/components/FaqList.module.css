@@ -1,0 +1,22 @@
+.faq_main {
+  margin-top: 30px;
+}
+
+.faq_main h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.faq_item {
+  margin-bottom: 20px;
+}
+
+.faq_question {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.faq_answer {
+  margin-left: 20px;
+}

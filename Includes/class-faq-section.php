@@ -34,6 +34,11 @@ public function register_faq_route() {
     //     return current_user_can( 'edit_others_posts' );
     // }
   ) );
+  register_rest_route( 'faqplugin/v1', '/getfaq', array(
+        'methods' => 'GET',
+        'callback' => array($this, 'get_faq_list')
+    ) );
+  
 }
 
 public function save_faq_data( WP_REST_Request $request ) {
@@ -58,7 +63,6 @@ public function save_faq_to_database( $data ) {
     global $wpdb;
 
     $table_name = $wpdb->prefix . 'faq_plugin_data';
-
     $wpdb->insert( 
         $table_name, 
         array( 
@@ -67,8 +71,18 @@ public function save_faq_to_database( $data ) {
         ), 
         array('%s', '%s') 
     );
-
+    
     return $wpdb->insert_id;
+}
+
+public function get_faq_list($request) {
+    global $wpdb;
+    $table_name = $wpdb->prefix . 'faq_plugin_data';
+    $results = $wpdb->get_results("SELECT * FROM $table_name");
+    if ( empty( $results ) ) {
+        return new WP_Error( 'no_faq', 'No Faq Found', array( 'status' => 404 ) );
+    }
+    return new WP_REST_Response( $results, 200 );
 }
 
 public function faq_plugin_admin_script() {

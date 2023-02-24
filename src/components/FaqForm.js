@@ -34,8 +34,6 @@ function FaqForm(props) {
         props.onSubmit({ question, answer });
     };
     
-    console.log(validateAnswer)
-
   return (
     <form onSubmit={handleSubmit} className="faq-form">
         <div className="form-group">

@@ -75,7 +75,6 @@ function FaqForm(props) {
       answer
     });
   };
-  console.log(validateAnswer);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("form", {
     onSubmit: handleSubmit,
     className: "faq-form"
@@ -158,10 +157,9 @@ const FaqSection = () => {
         'Content-Type': 'application/json'
       }
     }).then(response => response.json()).then(data => {
-      // Save the FAQ data in the WordPress option table
-      const faqs = JSON.parse(localStorage.getItem('faqs')) || [];
-      const newFaqs = [...faqs, data];
-      localStorage.setItem('faqs', JSON.stringify(newFaqs));
+      console.log('Success:', data);
+    }).catch(error => {
+      console.error('Error:', error);
     });
   };
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_FaqForm__WEBPACK_IMPORTED_MODULE_2__["default"], {

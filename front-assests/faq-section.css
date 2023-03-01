@@ -1,0 +1,27 @@
+.faq-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.faq-item {
+    margin-bottom: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.faq-question {
+    padding: 8px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.faq-answer {
+    display: none;
+    padding: 8px;
+    font-size: 16px;
+}
+
+.faq-answer.show {
+    display: block;
+}

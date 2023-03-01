@@ -131,8 +131,9 @@ __webpack_require__.r(__webpack_exports__);
 
 const FaqList = () => {
   const [faqList, setFaqList] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
+  const siteUrl = window.location.origin;
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
-    fetch('/litch_venture/wp-json/faqplugin/v1/getfaq').then(response => {
+    fetch(siteUrl + '/wp-json/faqplugin/v1/getfaq').then(response => {
       return response.json();
     }).then(data => {
       console.log(data);
@@ -172,7 +173,8 @@ __webpack_require__.r(__webpack_exports__);
 const FaqSection = () => {
   const onSubmitHandler = faqData => {
     // Send the FAQ data to the custom REST endpoint
-    fetch('/litch_venture/wp-json/faqplugin/v1/faq', {
+    const siteUrl = window.location.origin;
+    fetch(siteUrl + '/wp-json/faqplugin/v1/faq', {
       method: 'POST',
       body: JSON.stringify(faqData),
       headers: {

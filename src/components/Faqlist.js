@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import classes from "./FaqList.module.css"
     const FaqList = () => {
     const [faqList, setFaqList] = useState([]);
-
+    const siteUrl = window.location.origin;
     useEffect(() => {
-        fetch('/litch_venture/wp-json/faqplugin/v1/getfaq').then((response) => {
+        fetch(siteUrl+ '/wp-json/faqplugin/v1/getfaq').then((response) => {
             return response.json();
         }).then((data) => {
             console.log(data)

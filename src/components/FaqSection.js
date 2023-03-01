@@ -4,7 +4,8 @@ import FaqForm from "./FaqForm";
 const FaqSection = () => {
     const onSubmitHandler = (faqData) => {
         // Send the FAQ data to the custom REST endpoint
-        fetch('/litch_venture/wp-json/faqplugin/v1/faq', {
+        const siteUrl = window.location.origin;
+        fetch(siteUrl + '/wp-json/faqplugin/v1/faq', {
           method: 'POST',
           body: JSON.stringify(faqData),
           headers: {

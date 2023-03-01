@@ -10,7 +10,6 @@
  Text Domain: faq-section
  */
 
-
 $CUSTOMFORM = '1.0.0';
 
 if (!defined('FAQ_SECTION_VERSION')) {

@@ -21,6 +21,7 @@ public function __construct() {
 private function load_dependencies() {
     require_once FAQ_SECTION_PLUGIN_PATH . 'admin/class-faq-admin.php';
     require_once FAQ_SECTION_PLUGIN_PATH . 'includes/class-faq-api.php';
+    require_once FAQ_SECTION_PLUGIN_PATH . 'includes/class-faq-shortcode.php';
 }
 
 public function faq_plugin_admin_script() {

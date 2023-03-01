@@ -18,7 +18,7 @@ const FaqSection = () => {
             console.error('Error:', error);
         });
     }
-    return <div>
+    return <div className="faq_form_main">
         <FaqForm onSubmit={onSubmitHandler} />
     </div>
 }

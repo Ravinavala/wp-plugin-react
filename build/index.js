@@ -131,7 +131,8 @@ __webpack_require__.r(__webpack_exports__);
 
 const FaqList = () => {
   const [faqList, setFaqList] = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)([]);
-  const siteUrl = window.location.origin;
+  const isLocal = window.location.origin.includes('localhost');
+  const siteUrl = isLocal ? window.location.origin + window.location.pathname.substring(0, window.location.pathname.indexOf('/', 1)) : window.location.origin;
   (0,react__WEBPACK_IMPORTED_MODULE_1__.useEffect)(() => {
     fetch(siteUrl + '/wp-json/faqplugin/v1/getfaq').then(response => {
       return response.json();
@@ -173,7 +174,8 @@ __webpack_require__.r(__webpack_exports__);
 const FaqSection = () => {
   const onSubmitHandler = faqData => {
     // Send the FAQ data to the custom REST endpoint
-    const siteUrl = window.location.origin;
+    const isLocal = window.location.origin.includes('localhost');
+    const siteUrl = isLocal ? window.location.origin + window.location.pathname.substring(0, window.location.pathname.indexOf('/', 1)) : window.location.origin;
     fetch(siteUrl + '/wp-json/faqplugin/v1/faq', {
       method: 'POST',
       body: JSON.stringify(faqData),

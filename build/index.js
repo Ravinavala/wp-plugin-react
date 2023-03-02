@@ -142,14 +142,14 @@ const FaqList = () => {
   }, []);
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: _FaqList_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].faq_main
-  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Frequently Asked Questions"), faqList.map(faqItem => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("h2", null, "Frequently Asked Questions"), faqList.length > 0 ? faqList.map(faqItem => (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     key: faqItem.id,
     className: _FaqList_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].faq_item
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: _FaqList_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].faq_question
   }, faqItem.question), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: _FaqList_module_css__WEBPACK_IMPORTED_MODULE_2__["default"].faq_answer
-  }, faqItem.answer))));
+  }, faqItem.answer))) : (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("p", null, "No Faq's found"));
 };
 /* harmony default export */ __webpack_exports__["default"] = (FaqList);
 
